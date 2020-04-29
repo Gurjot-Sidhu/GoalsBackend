@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create,:show]
 
   post "/login", to: 'users#login'
-  get "/persist", to: 'users#persist'
-
+  post "/persist", to: 'users#persist'
+  get "/goals/:id", to: 'goals#show'
 end

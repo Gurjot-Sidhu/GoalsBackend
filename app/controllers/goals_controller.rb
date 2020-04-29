@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-    before_action :authorized , only: [:create,:delete]
+    before_action :authorized , only: [:index,:show,:create]
 
     def index
         @goals = Goal.all 
