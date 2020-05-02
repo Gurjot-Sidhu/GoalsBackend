@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post "/login", to: 'users#login'
   post "/persist", to: 'users#persist'
   get "/goals/:id", to: 'goals#show'
+  post "/goals/:id", to: 'milestone#create'
 end
