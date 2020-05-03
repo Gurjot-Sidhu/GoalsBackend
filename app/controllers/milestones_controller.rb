@@ -16,4 +16,9 @@ class MilestonesController < ApplicationController
         render json: @milestone
     end
 
+    def delete
+        byebug
+        @milestone = Milestone.find(params[:id])
+        @milestone.delete
+    end
 end
