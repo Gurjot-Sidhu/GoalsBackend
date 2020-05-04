@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-    before_action :authorized , only: [:index,:show,:create,:update]
+    before_action :authorized , only: [:show,:create,:update]
 
     def index
         @goals = Goal.all 
@@ -16,9 +16,16 @@ class GoalsController < ApplicationController
         render json: @goal
     end
 
-    def update
-        @goal = Goal.find(id:params[:id])
-        @goal.update(name:params[:name])
+
+    def delete
+        @goal = Goal.find(params[:id])
+        @goal.destroy
+        render json: {message:"goal has been deestoryed"}
+    end
+
+    def complete
+        @goal = Goal.find(params[:id])
+        @goal.completed
         render json: @goal
     end
 

@@ -17,8 +17,14 @@ class MilestonesController < ApplicationController
     end
 
     def delete
-        byebug
         @milestone = Milestone.find(params[:id])
-        @milestone.delete
+        @milestone.destroy
+        render json: {message: "pass"}
+    end
+
+    def complete
+        @milestone = Milestone.find(params[:id])
+        @milestone.update(complete:!@milestone.complete)
+        render json: @milestone
     end
 end
